@@ -1,0 +1,8 @@
+---
+name: Print
+description: Echos back what you type.
+arguments:
+    - name: text
+      argtype: quoted text
+      description: text you want to print
+      errorMsg: foo is not a valid value for text. Expected format is quoted text.

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"strings"
 
 	"github.com/ericjaystevens/slashparse"
@@ -20,23 +21,29 @@ const commandDefPath = "/home/ec2-user/code/slashparse_sample1/server/simple.yam
 // ExecuteCommand is entrypoint for print command
 func (p *Plugin) ExecuteCommand(_ *plugin.Context, args *model.CommandArgs) (*model.CommandResponse, *model.AppError) {
 
-	split := strings.Fields(args.Command)
-	newSlash, err := slashparse.NewSlashCommand(split, commandDefPath)
+	commandDef, err := ioutil.ReadFile(commandDefPath)
 	if err != nil {
 		return &model.CommandResponse{Text: err.Error()}, nil
 	}
 
-	command, err := newSlash.GetCommandString(split)
+	newSlash, err := slashparse.NewSlashCommand(args.Command, commandDef)
+	if err != nil {
+		return &model.CommandResponse{Text: err.Error()}, nil
+	}
+
+	command, err := newSlash.GetCommandString(args.Command)
+	if err != nil {
+		return &model.CommandResponse{Text: err.Error()}, nil
+	}
+
+	arguments, err := newSlash.GetValues(args.Command)
 	if err != nil {
 		return &model.CommandResponse{Text: err.Error()}, nil
 	}
 
 	switch command {
-	case "print help":
-		text := newSlash.GetSlashHelp()
-		return &model.CommandResponse{Text: text}, nil
-	case "print":
-		text := executePrint()
+	case "Print":
+		text := executePrint(arguments, &newSlash) //this newSlash will go away after subcommand allow help call in case statement
 		return &model.CommandResponse{Text: text}, nil
 	default:
 		text := "Unknown unknown"
@@ -44,7 +51,12 @@ func (p *Plugin) ExecuteCommand(_ *plugin.Context, args *model.CommandArgs) (*mo
 	}
 }
 
-func executePrint() (msg string) {
-	msg = "you want my to say what?"
+func executePrint(values map[string]string, newSlash *slashparse.SlashCommand) (msg string) {
+
+	if strings.EqualFold(values["text"], "help") {
+		msg = newSlash.GetSlashHelp()
+	} else {
+		msg = "you want my to say what? ...  " + values["text"]
+	}
 	return
 }

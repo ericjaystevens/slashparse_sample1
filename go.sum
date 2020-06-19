@@ -101,6 +101,8 @@ github.com/ericjaystevens/slashparse v0.0.0-20200524145937-774fe0f1ae3c h1:z1sTe
 github.com/ericjaystevens/slashparse v0.0.0-20200524145937-774fe0f1ae3c/go.mod h1:Aon5ArSCiWXXWEyvoASVC2em1zWV8edwmeTivfTeCI0=
 github.com/ericjaystevens/slashparse v0.0.0-20200602021021-867c004208b1 h1:0GG6bJwVK9a2a0cvTuw48UXg6UCLCYzTYyMjey/sqpo=
 github.com/ericjaystevens/slashparse v0.0.0-20200602021021-867c004208b1/go.mod h1:Qrvat8b3JwolHZhdykmEXiCf3Vvepb4PqSoUWCEmuto=
+github.com/ericjaystevens/slashparse v0.0.0-20200611012016-101b46f8eb79 h1:HSi8PBbAgWLUPA5Sj1tFz51HicREfkbk/zWkQrN/mxE=
+github.com/ericjaystevens/slashparse v0.0.0-20200611012016-101b46f8eb79/go.mod h1:Qrvat8b3JwolHZhdykmEXiCf3Vvepb4PqSoUWCEmuto=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0 h1:8xPHl4/q1VyqGIPif1F+1V3Y3lSmrq01EabUW3CoW5s=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=

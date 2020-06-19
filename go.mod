@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/Masterminds/squirrel v1.4.0 // indirect
 	github.com/andybalholm/brotli v1.0.0 // indirect
-	github.com/ericjaystevens/slashparse v0.0.0-20200602021021-867c004208b1
+	github.com/ericjaystevens/slashparse v0.0.0-20200611012016-101b46f8eb79
 	github.com/frankban/quicktest v1.10.0 // indirect
 	github.com/go-asn1-ber/asn1-ber v1.4.1 // indirect
 	github.com/go-gorp/gorp v2.2.0+incompatible // indirect
